@@ -20,6 +20,7 @@ app.get('/login', (req, res) => {
     <html>
       <head>
         <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
           body {
             font-family: Arial, sans-serif;
@@ -29,25 +30,30 @@ app.get('/login', (req, res) => {
             justify-content: center;
             height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
           }
           .login-box {
             background-color: #fff;
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 300px;
+            width: 100%;
+            max-width: 400px;
           }
           input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
           }
           button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #4f46e5;
             color: white;
             border: none;
@@ -57,6 +63,15 @@ app.get('/login', (req, res) => {
           }
           button:hover {
             background-color: #4338ca;
+          }
+          @media (max-width: 480px) {
+            .login-box {
+              padding: 20px 15px;
+            }
+            input, button {
+              font-size: 14px;
+              padding: 10px;
+            }
           }
         </style>
       </head>
@@ -73,7 +88,6 @@ app.get('/login', (req, res) => {
     </html>
   `);
 });
-
 
 // Handle login
 app.post('/login', (req, res) => {
